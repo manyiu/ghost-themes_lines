@@ -1,0 +1,37 @@
+{{#foreach posts}}
+    <div class="row">
+        <a href="{{url}}">
+            <div class=""
+            <article class="{{post_class}}">
+
+                <div class="col-md-12">
+
+                    <div class="loop-cover-placeholder{{#if image}} loop-cover-image" style="background-image: url({{image}}){{else}}loop-no-cover{{/if}}">
+
+                    <header class="post-header">
+
+
+                        <h2 class="post-title text-center">{{{title}}}</h2>
+                        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="YYYY-MM-DD"}}</time>
+                    </header>
+                    <section class="post-excerpt">
+                        <p>{{excerpt words="26"}} &raquo;</p>
+                    </section>
+                    <footer class="post-meta">
+                        <div class="loop-tags">{{tags separator="Tag:"}}</div>
+                    </footer>
+
+                    </div>
+
+                </div>
+
+
+            </article>
+
+        </a>
+    </div>
+{{/foreach}}
+
+{{#if pagination}}
+    {{{pagination}}}
+{{/if}}

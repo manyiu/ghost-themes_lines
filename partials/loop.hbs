@@ -1,37 +1,62 @@
+<div class="container-fluid">
+
 {{#foreach posts}}
-    <div class="row">
-        <a href="{{url}}">
-            <div class=""
-            <article class="{{post_class}}">
+<div class="row">
 
-                <div class="col-md-12">
+    <article class="{{post_class}}">
 
-                    <div class="loop-cover-placeholder{{#if image}} loop-cover-image" style="background-image: url({{image}}){{else}}loop-no-cover{{/if}}">
+        <div class="loop-cover-placeholder{{#if image}} loop-cover-image" style="background-image: url({{image}}){{else}} no-loop-cover-image{{/if}}">
+
+                <a class="loop-link" href="{{url}}">
+
+                    <div class="container loop-inside-container">
 
                     <header class="post-header">
 
-
-                        <h2 class="post-title text-center">{{{title}}}</h2>
-                        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="YYYY-MM-DD"}}</time>
+                        <div class="row loop-title">
+                            <div class="col-md-12">
+                                <h2 class="post-title">{{{title}}}</h2>
+                            </div>
+                        </div>
+                        <div class="row loop-date">
+                            <div class="col-md-12">
+                                <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="YYYY-MM-DD"}}</time>
+                            </div>
+                        </div>
                     </header>
-                    <section class="post-excerpt">
-                        <p>{{excerpt words="26"}} &raquo;</p>
-                    </section>
+
+
+
+                    <div class="row loop-section">
+
+                        <div class="loop-excerpt col-md-8 col-md-offset-2">
+                            <section class="post-excerpt">
+                                <p>{{excerpt words="26"}} &raquo;</p>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="row loop-footer">
+                    </div>
+
                     <footer class="post-meta">
-                        <div class="loop-tags">{{tags separator="Tag:"}}</div>
+                        {{#if tags}}
+                        <div class="loop-tags">tag: {{tags separator=" | "}}</div>{{/if}}
                     </footer>
 
                     </div>
 
-                </div>
+                </a>
 
+        </div>
 
-            </article>
+    </article>
 
-        </a>
-    </div>
+</div>
 {{/foreach}}
 
-{{#if pagination}}
-    {{{pagination}}}
-{{/if}}
+</div>
+
+<div class="container loop-pagination-container">
+    {{#if pagination}} {{{pagination}}} {{/if}}
+</div>

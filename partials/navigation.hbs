@@ -1,0 +1,23 @@
+<div class="container-fluid navigation-container">
+    <div class="container navigation-content-container navigation-content-mobile-container hidden-md-up">
+        <div class="row navigation-row">
+            <label class="navigation-menu-toggle" for="navigation-menu-toggle-box">☰ {{@blog.title}} ☰</label>
+            <input type="checkbox" id="navigation-menu-toggle-box" class="navigation-menu-toggle-box">
+            <div class="navigation-mobile-menu">
+                {{#foreach navigation}}
+                <div class="row mobile-nav-item nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute=" true "}}">{{label}}</a></div>
+                {{/foreach}}
+            </div>
+        </div>
+    </div>
+
+    <div class="container navigation-content-container navigation-content-normal-container hidden-sm-down">
+        <div class="row navigation-row navigation-normal-row">
+            <div class="col-md-12 navigation-content">
+            {{#foreach navigation}}
+            <a class="normal-nav-item-a" href="{{url absolute=" true "}}">{{label}}<div class="normal-nav-item nav-{{slug}}{{#if current}} nav-current{{/if}}"></div></a>
+            {{/foreach}}
+            </div>
+        </div>
+    </div>
+</div>
